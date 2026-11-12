@@ -6,7 +6,6 @@ package modelo;
 
 import org.bson.Document;
 
-// Entidad que representa a los usuarios de la biblioteca (RF-02)
 public class Usuario {
 
     private String codigo;
@@ -27,7 +26,6 @@ public class Usuario {
         this.activo = activo;
     }
 
-    // Convertir de Objeto Java a Documento MongoDB
     public Document toDocument() {
         return new Document("codigo", codigo)
                 .append("nombreCompleto", nombreCompleto)
@@ -36,9 +34,10 @@ public class Usuario {
                 .append("activo", activo);
     }
 
-    // Convertir de Documento MongoDB a Objeto Java
     public static Usuario fromDocument(Document doc) {
-        if (doc == null) return null;
+        if (doc == null) {
+            return null;
+        }
         return new Usuario(
                 doc.getString("codigo"),
                 doc.getString("nombreCompleto"),
@@ -48,19 +47,43 @@ public class Usuario {
         );
     }
 
-    // Getters y Setters
-    public String getCodigo() { return codigo; }
-    public void setCodigo(String codigo) { this.codigo = codigo; }
+    public String getCodigo() {
+        return codigo;
+    }
 
-    public String getNombreCompleto() { return nombreCompleto; }
-    public void setNombreCompleto(String nombreCompleto) { this.nombreCompleto = nombreCompleto; }
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
 
-    public String getDocumento() { return documento; }
-    public void setDocumento(String documento) { this.documento = documento; }
+    public String getNombreCompleto() {
+        return nombreCompleto;
+    }
 
-    public String getContacto() { return contacto; }
-    public void setContacto(String contacto) { this.contacto = contacto; }
+    public void setNombreCompleto(String nombreCompleto) {
+        this.nombreCompleto = nombreCompleto;
+    }
 
-    public boolean isActivo() { return activo; }
-    public void setActivo(boolean activo) { this.activo = activo; }
+    public String getDocumento() {
+        return documento;
+    }
+
+    public void setDocumento(String documento) {
+        this.documento = documento;
+    }
+
+    public String getContacto() {
+        return contacto;
+    }
+
+    public void setContacto(String contacto) {
+        this.contacto = contacto;
+    }
+
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
 }
