@@ -1,4 +1,4 @@
-package com.biblioteca.sistemagestionbiblioteca;
+package modelo;
 
 public class Material {
 

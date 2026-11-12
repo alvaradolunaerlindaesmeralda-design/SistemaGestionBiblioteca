@@ -1,4 +1,8 @@
- package com.biblioteca.sistemagestionbiblioteca;
+ package servicio;
+
+import dao.MaterialDAO;
+import modelo.Revista;
+import modelo.Libro;
 
 public class MaterialServicio {
 

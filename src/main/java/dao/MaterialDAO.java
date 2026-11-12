@@ -1,5 +1,8 @@
- package com.biblioteca.sistemagestionbiblioteca;
+ package dao;
 
+import modelo.Revista;
+import modelo.Libro;
+import conexion.ConexionMongoDB;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;

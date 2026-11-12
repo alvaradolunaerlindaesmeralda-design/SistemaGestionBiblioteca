@@ -1,5 +1,8 @@
-  package com.biblioteca.sistemagestionbiblioteca;
+  package app;
 
+import conexion.ConexionMongoDB;
+import modelo.RegistroMateriales;
+import modelo.Revista;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;

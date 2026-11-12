@@ -1,4 +1,4 @@
-package com.biblioteca.sistemagestionbiblioteca;
+package conexion;
 
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;

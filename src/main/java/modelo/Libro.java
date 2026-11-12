@@ -1,4 +1,6 @@
- package com.biblioteca.sistemagestionbiblioteca;
+ package modelo;
+
+import modelo.Material;
 
 public class Libro extends Material {
 
