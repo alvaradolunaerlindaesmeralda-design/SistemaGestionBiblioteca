@@ -1,48 +1,29 @@
-  package app;
+package app;
 
-import conexion.ConexionMongoDB;
-import modelo.RegistroMateriales;
-import modelo.Revista;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
-import org.bson.Document;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+import vista.Login;
+// Si deseas probar directo sin pasar por el Login, descomenta la siguiente línea:
+// import vista.VentanaPrincipal;
 
 public class SistemaGestionBiblioteca {
 
     public static void main(String[] args) {
-
+        // Aplica el estilo visual nativo del sistema operativo (Windows)
         try {
-            RegistroMateriales registro = new RegistroMateriales();
-
-            Revista revista = new Revista(
-                    "R001",
-                    "National Geographic",
-                    2025,
-                    125,
-                    "Mensual"
-            );
-
-            registro.registrarRevista(revista);
-
-            System.out.println("Revista registrada correctamente.");
-
-            MongoDatabase baseDatos = ConexionMongoDB.obtenerConexion();
-
-            MongoCollection<Document> coleccion =
-                    baseDatos.getCollection("Materiales");
-
-            System.out.println("\nRegistro guardado:");
-
-            for (Document documento : coleccion.find(
-                    new Document("codigo", "R001"))) {
-                System.out.println(documento.toJson());
-            }
-
-            ConexionMongoDB.cerrarConexion();
-
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception e) {
-            System.out.println("Error al registrar la revista.");
-            System.out.println(e.getMessage());
+            System.out.println("No se pudo cargar el estilo visual: " + e.getMessage());
         }
+
+        // Inicia la interfaz gráfica del sistema
+        SwingUtilities.invokeLater(() -> {
+            Login ventanaLogin = new Login();
+            ventanaLogin.setLocationRelativeTo(null); // Centra la ventana en pantalla
+            ventanaLogin.setVisible(true);
+            
+            // Si prefieres abrir directo el menú principal para probar tu módulo:
+            // new VentanaPrincipal().setVisible(true);
+        });
     }
 }
